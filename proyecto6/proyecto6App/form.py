@@ -8,9 +8,6 @@ class ProyectoForm(forms.ModelForm):
         widgets = {
             'fechaInicio': forms.TextInput(attrs={'type': 'date'}),
             'fechaFin': forms.TextInput(attrs={'type': 'date'}),
-            'Nombre': forms.TextInput(attrs={'class': 'form-control'}),
-            'Responsable': forms.TextInput(attrs={'class': 'form-control'}),
-            'Prioridad': forms.TextInput(attrs={'class': 'form-control'}),
         }
         
 
