@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="container mt-5">
+    <div class="alert alert-info display-1 text-center">
+        Lista de proyectos
+    </div>
+
+    {% if proyectos %}
+    <table class="table table-striped table-inverse table-responsive">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Nombre</th>
+                <th>Responsable</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de fin</th>
+                <th>Prioridad</th>
+                <th>Otros</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proyecto in proyectos %}
+            <tr>
+                <td>{{ proyecto.nombre }}</td>
+                <td>{{ proyecto.responsable }}</td>
+                <td>{{ proyecto.fechaInicio }}</td>
+                <td>{{ proyecto.fechaFin }}</td>
+                <td>{{ proyecto.prioridad }}</td>
+                <td>
+                    <a href="/proyecto/{{ proyecto.id }}/editarproyecto" class="btn btn-warning">Editar</a>
+                    <a href="/proyecto/{{ proyecto.id }}/eliminarproyecto" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <div class="alert alert-info">
+            No hay proyectos registrados
+        </div>
+    {% endif %}
+    <a href="/agregarproyecto" class="btn btn-info">Agregar Proyecto</a>
+
+    
+</body>
+</html>
